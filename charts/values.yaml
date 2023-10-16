@@ -32,8 +32,20 @@ rke:
     clusterCidr: "10.42.0.0/16"
     clusterDns: "10.43.0.10"
     clusterDomain: "cluster.local"
-    disable: {}
-
+    disable: []
+  etcd:
+    disableSnapshots: false
+    snapshotRetention: 5
+    snapshotScheduleCron: "0 */5 * * *"
+    S3:
+      enabled: false
+      bucket: ''
+      cloudCredentialName: null
+      endpoint: ''
+      endpointCA: ''
+      folder: ''
+      region: ''
+      skipSSLVerify: false
 # specify user principal ids to be assiged as cluster members
 # clusterMembers:
 # - principalName: "local://u-z8zl5"
