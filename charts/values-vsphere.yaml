@@ -61,6 +61,9 @@ nodepools:
 
   # specify nodepool name
   name: vsphere-nodepool-1
+  
+  # vSphere URL for boot2docker image
+  # boot2dockerUrl: ""
 
   # vSphere vm configuration parameters (used for guestinfo)
   # cfgparam: []
@@ -112,17 +115,35 @@ nodepools:
   # vSphere network where the virtual machine will be attached
   # network: ""
 
+  # If using a non-B2D image you can specify the desired machine OS, default: linux
+  # os: ""
+
+  # vSphere password
+  # password: ""
+
   # vSphere resource pool for docker VM
   # pool: ""
 
+  # provider ID
+  # providerID: ""
+
+  # If using a non-B2D image you can specify the ssh password
+  # sshPassword: ""
+
   # If using a non-B2D image you can specify the ssh port
   sshPort: "22"
+
+  # If using a non-B2D image you can specify the ssh user, default: docker
+  # sshUser: ""
 
   # If using a non-B2D image the uploaded keys will need chown'ed, defaults to staff e.g. docker:staff
   sshUserGroup: staff
 
   # vSphere tag id e.g. urn:xxx
   # tag: ["urn:xxx"]
+
+  # vSphere username
+  # username: ""
 
   # 'vSphere vApp IP allocation policy. Supported values are: dhcp, fixed, transient and fixedAllocated'
   # vappIpallocationpolicy: ""
