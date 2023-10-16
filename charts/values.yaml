@@ -28,7 +28,7 @@ rke:
   # caCerts: ""
   machineGlobalConfig:
     auditPolicyFile: ""
-    cni: calico2
+    cni: calico
     clusterCidr: "10.42.0.0/16"
     clusterDns: "10.43.0.10"
     clusterDomain: "cluster.local"

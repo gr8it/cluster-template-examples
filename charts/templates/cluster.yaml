@@ -103,6 +103,7 @@ spec:
     {{- end }}
     {{- end }}
     machineGlobalConfig:
+      ## TODO
       # Path to the file that defines the audit policy configuration
       audit-policy-file: {{ .Values.rke.machineGlobalConfig.auditPolicyFile }}
       # IPv4/IPv6 network CIDRs to use for pod IPs (default: 10.42.0.0/16)
@@ -120,7 +121,7 @@ spec:
       # Expose etcd metrics to client interface. (Default false)
       # etcd-expose-metrics: false      
       ## todo
-      service-node-port-range: 1024-1084
+      # service-node-port-range: 1024-1084
       ## todo
       # Validate system configuration against the selected benchmark (valid items: cis-1.5, cis-1.6 )
       # profile: "cis-1.6"
