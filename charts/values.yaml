@@ -26,6 +26,13 @@ rke:
   # fqdn: foo.bar.example
   # specify cacert of local access endpoint
   # caCerts: ""
+  machineGlobalConfig:
+    auditPolicyFile: ""
+    cni: calico2
+    clusterCidr: "10.42.0.0/16"
+    clusterDns: "10.43.0.10"
+    clusterDomain: "cluster.local"
+    
 
 # specify user principal ids to be assiged as cluster members
 # clusterMembers:

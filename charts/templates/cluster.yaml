@@ -104,15 +104,15 @@ spec:
     {{- end }}
     machineGlobalConfig:
       # Path to the file that defines the audit policy configuration
-      # audit-policy-file: ""
+      audit-policy-file: {{ .Values.rke.machineGlobalConfig.auditPolicyFile }}
       # IPv4/IPv6 network CIDRs to use for pod IPs (default: 10.42.0.0/16)
-      # cluster-cidr: ""
+      cluster-cidr: {{ .Values.rke.machineGlobalConfig.clusterCidr }}
       # IPv4 Cluster IP for coredns service. Should be in your service-cidr range (default: 10.43.0.10)
-      # cluster-dns: ""
+      cluster-dns: {{ .Values.rke.machineGlobalConfig.clusterDns }}
       # Cluster Domain (default: "cluster.local")
-      # cluster-domain: ""
+      cluster-domain: {{ .Values.rke.machineGlobalConfig.clusterDomain }}
       # CNI Plugin to deploy, one of none, canal, cilium (default: "canal")
-      cni: calico
+      cni: {{ .Values.rke.machineGlobalConfig.cni }}
       # Do not deploy packaged components and delete any deployed components (valid items: rke2-coredns, rke2-ingress-nginx, rke2-kube-proxy, rke2-metrics-server)
       # disable: false
       # Disable automatic etcd snapshots

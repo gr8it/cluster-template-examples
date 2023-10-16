@@ -1,0 +1,1551 @@
+Name:         clusters.provisioning.cattle.io
+Namespace:    
+Labels:       auth.cattle.io/cluster-indexed=true
+              objectset.rio.cattle.io/hash=94b90e9951177f601f4618a62b48fd15a7735356
+Annotations:  objectset.rio.cattle.io/applied:
+                H4sIAAAAAAAA/+xdX3PbOA7/Kjd8dnKb63/P3EPWSfc6SbseO8097PSBFiGZa4pkQdKJr5PvfkP9sx1LMp3GrdPo0RJJgPgBIAhQ9DdCNb8GNFxJ0vc/4NaC9D/N8eytOebqn/MT0i...
+              objectset.rio.cattle.io/id: 
+              objectset.rio.cattle.io/owner-gvk: apiextensions.k8s.io/v1, Kind=CustomResourceDefinition
+              objectset.rio.cattle.io/owner-name: clusters.provisioning.cattle.io
+              objectset.rio.cattle.io/owner-namespace: 
+API Version:  apiextensions.k8s.io/v1
+Kind:         CustomResourceDefinition
+Metadata:
+  Creation Timestamp:  2023-09-20T07:04:37Z
+  Generation:          1
+  Resource Version:    3013
+  UID:                 fa7145ef-051e-4c23-a8a1-2421be843671
+Spec:
+  Conversion:
+    Strategy:  None
+  Group:       provisioning.cattle.io
+  Names:
+    Kind:       Cluster
+    List Kind:  ClusterList
+    Plural:     clusters
+    Singular:   cluster
+  Scope:        Namespaced
+  Versions:
+    Additional Printer Columns:
+      Json Path:  .status.ready
+      Name:       Ready
+      Type:       string
+      Json Path:  .status.clientSecretName
+      Name:       Kubeconfig
+      Type:       string
+    Name:         v1
+    Schema:
+      openAPIV3Schema:
+        Properties:
+          Spec:
+            Properties:
+              Agent Env Vars:
+                Items:
+                  Properties:
+                    Name:
+                      Nullable:  true
+                      Type:      string
+                    Value:
+                      Nullable:  true
+                      Type:      string
+                  Type:          object
+                Nullable:        true
+                Type:            array
+              Cloud Credential Secret Name:
+                Nullable:  true
+                Type:      string
+              Cluster API Config:
+                Nullable:  true
+                Properties:
+                  Cluster Name:
+                    Nullable:  true
+                    Type:      string
+                Type:          object
+              Cluster Agent Deployment Customization:
+                Nullable:  true
+                Properties:
+                  Append Tolerations:
+                    Items:
+                      Properties:
+                        Effect:
+                          Nullable:  true
+                          Type:      string
+                        Key:
+                          Nullable:  true
+                          Type:      string
+                        Operator:
+                          Nullable:  true
+                          Type:      string
+                        Toleration Seconds:
+                          Nullable:  true
+                          Type:      integer
+                        Value:
+                          Nullable:  true
+                          Type:      string
+                      Type:          object
+                    Nullable:        true
+                    Type:            array
+                  Override Affinity:
+                    Nullable:  true
+                    Properties:
+                      Node Affinity:
+                        Nullable:  true
+                        Properties:
+                          Preferred During Scheduling Ignored During Execution:
+                            Items:
+                              Properties:
+                                Preference:
+                                  Properties:
+                                    Match Expressions:
+                                      Items:
+                                        Properties:
+                                          Key:
+                                            Nullable:  true
+                                            Type:      string
+                                          Operator:
+                                            Nullable:  true
+                                            Type:      string
+                                          Values:
+                                            Items:
+                                              Nullable:  true
+                                              Type:      string
+                                            Nullable:    true
+                                            Type:        array
+                                        Type:            object
+                                      Nullable:          true
+                                      Type:              array
+                                    Match Fields:
+                                      Items:
+                                        Properties:
+                                          Key:
+                                            Nullable:  true
+                                            Type:      string
+                                          Operator:
+                                            Nullable:  true
+                                            Type:      string
+                                          Values:
+                                            Items:
+                                              Nullable:  true
+                                              Type:      string
+                                            Nullable:    true
+                                            Type:        array
+                                        Type:            object
+                                      Nullable:          true
+                                      Type:              array
+                                  Type:                  object
+                                Weight:
+                                  Type:  integer
+                              Type:      object
+                            Nullable:    true
+                            Type:        array
+                          Required During Scheduling Ignored During Execution:
+                            Nullable:  true
+                            Properties:
+                              Node Selector Terms:
+                                Items:
+                                  Properties:
+                                    Match Expressions:
+                                      Items:
+                                        Properties:
+                                          Key:
+                                            Nullable:  true
+                                            Type:      string
+                                          Operator:
+                                            Nullable:  true
+                                            Type:      string
+                                          Values:
+                                            Items:
+                                              Nullable:  true
+                                              Type:      string
+                                            Nullable:    true
+                                            Type:        array
+                                        Type:            object
+                                      Nullable:          true
+                                      Type:              array
+                                    Match Fields:
+                                      Items:
+                                        Properties:
+                                          Key:
+                                            Nullable:  true
+                                            Type:      string
+                                          Operator:
+                                            Nullable:  true
+                                            Type:      string
+                                          Values:
+                                            Items:
+                                              Nullable:  true
+                                              Type:      string
+                                            Nullable:    true
+                                            Type:        array
+                                        Type:            object
+                                      Nullable:          true
+                                      Type:              array
+                                  Type:                  object
+                                Nullable:                true
+                                Type:                    array
+                            Type:                        object
+                        Type:                            object
+                      Pod Affinity:
+                        Nullable:  true
+                        Properties:
+                          Preferred During Scheduling Ignored During Execution:
+                            Items:
+                              Properties:
+                                Pod Affinity Term:
+                                  Properties:
+                                    Label Selector:
+                                      Nullable:  true
+                                      Properties:
+                                        Match Expressions:
+                                          Items:
+                                            Properties:
+                                              Key:
+                                                Nullable:  true
+                                                Type:      string
+                                              Operator:
+                                                Nullable:  true
+                                                Type:      string
+                                              Values:
+                                                Items:
+                                                  Nullable:  true
+                                                  Type:      string
+                                                Nullable:    true
+                                                Type:        array
+                                            Type:            object
+                                          Nullable:          true
+                                          Type:              array
+                                        Match Labels:
+                                          Additional Properties:
+                                            Nullable:  true
+                                            Type:      string
+                                          Nullable:    true
+                                          Type:        object
+                                      Type:            object
+                                    Namespace Selector:
+                                      Nullable:  true
+                                      Properties:
+                                        Match Expressions:
+                                          Items:
+                                            Properties:
+                                              Key:
+                                                Nullable:  true
+                                                Type:      string
+                                              Operator:
+                                                Nullable:  true
+                                                Type:      string
+                                              Values:
+                                                Items:
+                                                  Nullable:  true
+                                                  Type:      string
+                                                Nullable:    true
+                                                Type:        array
+                                            Type:            object
+                                          Nullable:          true
+                                          Type:              array
+                                        Match Labels:
+                                          Additional Properties:
+                                            Nullable:  true
+                                            Type:      string
+                                          Nullable:    true
+                                          Type:        object
+                                      Type:            object
+                                    Namespaces:
+                                      Items:
+                                        Nullable:  true
+                                        Type:      string
+                                      Nullable:    true
+                                      Type:        array
+                                    Topology Key:
+                                      Nullable:  true
+                                      Type:      string
+                                  Type:          object
+                                Weight:
+                                  Type:  integer
+                              Type:      object
+                            Nullable:    true
+                            Type:        array
+                          Required During Scheduling Ignored During Execution:
+                            Items:
+                              Properties:
+                                Label Selector:
+                                  Nullable:  true
+                                  Properties:
+                                    Match Expressions:
+                                      Items:
+                                        Properties:
+                                          Key:
+                                            Nullable:  true
+                                            Type:      string
+                                          Operator:
+                                            Nullable:  true
+                                            Type:      string
+                                          Values:
+                                            Items:
+                                              Nullable:  true
+                                              Type:      string
+                                            Nullable:    true
+                                            Type:        array
+                                        Type:            object
+                                      Nullable:          true
+                                      Type:              array
+                                    Match Labels:
+                                      Additional Properties:
+                                        Nullable:  true
+                                        Type:      string
+                                      Nullable:    true
+                                      Type:        object
+                                  Type:            object
+                                Namespace Selector:
+                                  Nullable:  true
+                                  Properties:
+                                    Match Expressions:
+                                      Items:
+                                        Properties:
+                                          Key:
+                                            Nullable:  true
+                                            Type:      string
+                                          Operator:
+                                            Nullable:  true
+                                            Type:      string
+                                          Values:
+                                            Items:
+                                              Nullable:  true
+                                              Type:      string
+                                            Nullable:    true
+                                            Type:        array
+                                        Type:            object
+                                      Nullable:          true
+                                      Type:              array
+                                    Match Labels:
+                                      Additional Properties:
+                                        Nullable:  true
+                                        Type:      string
+                                      Nullable:    true
+                                      Type:        object
+                                  Type:            object
+                                Namespaces:
+                                  Items:
+                                    Nullable:  true
+                                    Type:      string
+                                  Nullable:    true
+                                  Type:        array
+                                Topology Key:
+                                  Nullable:  true
+                                  Type:      string
+                              Type:          object
+                            Nullable:        true
+                            Type:            array
+                        Type:                object
+                      Pod Anti Affinity:
+                        Nullable:  true
+                        Properties:
+                          Preferred During Scheduling Ignored During Execution:
+                            Items:
+                              Properties:
+                                Pod Affinity Term:
+                                  Properties:
+                                    Label Selector:
+                                      Nullable:  true
+                                      Properties:
+                                        Match Expressions:
+                                          Items:
+                                            Properties:
+                                              Key:
+                                                Nullable:  true
+                                                Type:      string
+                                              Operator:
+                                                Nullable:  true
+                                                Type:      string
+                                              Values:
+                                                Items:
+                                                  Nullable:  true
+                                                  Type:      string
+                                                Nullable:    true
+                                                Type:        array
+                                            Type:            object
+                                          Nullable:          true
+                                          Type:              array
+                                        Match Labels:
+                                          Additional Properties:
+                                            Nullable:  true
+                                            Type:      string
+                                          Nullable:    true
+                                          Type:        object
+                                      Type:            object
+                                    Namespace Selector:
+                                      Nullable:  true
+                                      Properties:
+                                        Match Expressions:
+                                          Items:
+                                            Properties:
+                                              Key:
+                                                Nullable:  true
+                                                Type:      string
+                                              Operator:
+                                                Nullable:  true
+                                                Type:      string
+                                              Values:
+                                                Items:
+                                                  Nullable:  true
+                                                  Type:      string
+                                                Nullable:    true
+                                                Type:        array
+                                            Type:            object
+                                          Nullable:          true
+                                          Type:              array
+                                        Match Labels:
+                                          Additional Properties:
+                                            Nullable:  true
+                                            Type:      string
+                                          Nullable:    true
+                                          Type:        object
+                                      Type:            object
+                                    Namespaces:
+                                      Items:
+                                        Nullable:  true
+                                        Type:      string
+                                      Nullable:    true
+                                      Type:        array
+                                    Topology Key:
+                                      Nullable:  true
+                                      Type:      string
+                                  Type:          object
+                                Weight:
+                                  Type:  integer
+                              Type:      object
+                            Nullable:    true
+                            Type:        array
+                          Required During Scheduling Ignored During Execution:
+                            Items:
+                              Properties:
+                                Label Selector:
+                                  Nullable:  true
+                                  Properties:
+                                    Match Expressions:
+                                      Items:
+                                        Properties:
+                                          Key:
+                                            Nullable:  true
+                                            Type:      string
+                                          Operator:
+                                            Nullable:  true
+                                            Type:      string
+                                          Values:
+                                            Items:
+                                              Nullable:  true
+                                              Type:      string
+                                            Nullable:    true
+                                            Type:        array
+                                        Type:            object
+                                      Nullable:          true
+                                      Type:              array
+                                    Match Labels:
+                                      Additional Properties:
+                                        Nullable:  true
+                                        Type:      string
+                                      Nullable:    true
+                                      Type:        object
+                                  Type:            object
+                                Namespace Selector:
+                                  Nullable:  true
+                                  Properties:
+                                    Match Expressions:
+                                      Items:
+                                        Properties:
+                                          Key:
+                                            Nullable:  true
+                                            Type:      string
+                                          Operator:
+                                            Nullable:  true
+                                            Type:      string
+                                          Values:
+                                            Items:
+                                              Nullable:  true
+                                              Type:      string
+                                            Nullable:    true
+                                            Type:        array
+                                        Type:            object
+                                      Nullable:          true
+                                      Type:              array
+                                    Match Labels:
+                                      Additional Properties:
+                                        Nullable:  true
+                                        Type:      string
+                                      Nullable:    true
+                                      Type:        object
+                                  Type:            object
+                                Namespaces:
+                                  Items:
+                                    Nullable:  true
+                                    Type:      string
+                                  Nullable:    true
+                                  Type:        array
+                                Topology Key:
+                                  Nullable:  true
+                                  Type:      string
+                              Type:          object
+                            Nullable:        true
+                            Type:            array
+                        Type:                object
+                    Type:                    object
+                  Override Resource Requirements:
+                    Nullable:  true
+                    Properties:
+                      Limits:
+                        Additional Properties:
+                          Nullable:  true
+                          Type:      string
+                        Nullable:    true
+                        Type:        object
+                      Requests:
+                        Additional Properties:
+                          Nullable:  true
+                          Type:      string
+                        Nullable:    true
+                        Type:        object
+                    Type:            object
+                Type:                object
+              Default Cluster Role For Project Members:
+                Nullable:  true
+                Type:      string
+              Default Pod Security Admission Configuration Template Name:
+                Nullable:  true
+                Type:      string
+              Default Pod Security Policy Template Name:
+                Nullable:  true
+                Type:      string
+              Enable Network Policy:
+                Nullable:  true
+                Type:      boolean
+              Fleet Agent Deployment Customization:
+                Nullable:  true
+                Properties:
+                  Append Tolerations:
+                    Items:
+                      Properties:
+                        Effect:
+                          Nullable:  true
+                          Type:      string
+                        Key:
+                          Nullable:  true
+                          Type:      string
+                        Operator:
+                          Nullable:  true
+                          Type:      string
+                        Toleration Seconds:
+                          Nullable:  true
+                          Type:      integer
+                        Value:
+                          Nullable:  true
+                          Type:      string
+                      Type:          object
+                    Nullable:        true
+                    Type:            array
+                  Override Affinity:
+                    Nullable:  true
+                    Properties:
+                      Node Affinity:
+                        Nullable:  true
+                        Properties:
+                          Preferred During Scheduling Ignored During Execution:
+                            Items:
+                              Properties:
+                                Preference:
+                                  Properties:
+                                    Match Expressions:
+                                      Items:
+                                        Properties:
+                                          Key:
+                                            Nullable:  true
+                                            Type:      string
+                                          Operator:
+                                            Nullable:  true
+                                            Type:      string
+                                          Values:
+                                            Items:
+                                              Nullable:  true
+                                              Type:      string
+                                            Nullable:    true
+                                            Type:        array
+                                        Type:            object
+                                      Nullable:          true
+                                      Type:              array
+                                    Match Fields:
+                                      Items:
+                                        Properties:
+                                          Key:
+                                            Nullable:  true
+                                            Type:      string
+                                          Operator:
+                                            Nullable:  true
+                                            Type:      string
+                                          Values:
+                                            Items:
+                                              Nullable:  true
+                                              Type:      string
+                                            Nullable:    true
+                                            Type:        array
+                                        Type:            object
+                                      Nullable:          true
+                                      Type:              array
+                                  Type:                  object
+                                Weight:
+                                  Type:  integer
+                              Type:      object
+                            Nullable:    true
+                            Type:        array
+                          Required During Scheduling Ignored During Execution:
+                            Nullable:  true
+                            Properties:
+                              Node Selector Terms:
+                                Items:
+                                  Properties:
+                                    Match Expressions:
+                                      Items:
+                                        Properties:
+                                          Key:
+                                            Nullable:  true
+                                            Type:      string
+                                          Operator:
+                                            Nullable:  true
+                                            Type:      string
+                                          Values:
+                                            Items:
+                                              Nullable:  true
+                                              Type:      string
+                                            Nullable:    true
+                                            Type:        array
+                                        Type:            object
+                                      Nullable:          true
+                                      Type:              array
+                                    Match Fields:
+                                      Items:
+                                        Properties:
+                                          Key:
+                                            Nullable:  true
+                                            Type:      string
+                                          Operator:
+                                            Nullable:  true
+                                            Type:      string
+                                          Values:
+                                            Items:
+                                              Nullable:  true
+                                              Type:      string
+                                            Nullable:    true
+                                            Type:        array
+                                        Type:            object
+                                      Nullable:          true
+                                      Type:              array
+                                  Type:                  object
+                                Nullable:                true
+                                Type:                    array
+                            Type:                        object
+                        Type:                            object
+                      Pod Affinity:
+                        Nullable:  true
+                        Properties:
+                          Preferred During Scheduling Ignored During Execution:
+                            Items:
+                              Properties:
+                                Pod Affinity Term:
+                                  Properties:
+                                    Label Selector:
+                                      Nullable:  true
+                                      Properties:
+                                        Match Expressions:
+                                          Items:
+                                            Properties:
+                                              Key:
+                                                Nullable:  true
+                                                Type:      string
+                                              Operator:
+                                                Nullable:  true
+                                                Type:      string
+                                              Values:
+                                                Items:
+                                                  Nullable:  true
+                                                  Type:      string
+                                                Nullable:    true
+                                                Type:        array
+                                            Type:            object
+                                          Nullable:          true
+                                          Type:              array
+                                        Match Labels:
+                                          Additional Properties:
+                                            Nullable:  true
+                                            Type:      string
+                                          Nullable:    true
+                                          Type:        object
+                                      Type:            object
+                                    Namespace Selector:
+                                      Nullable:  true
+                                      Properties:
+                                        Match Expressions:
+                                          Items:
+                                            Properties:
+                                              Key:
+                                                Nullable:  true
+                                                Type:      string
+                                              Operator:
+                                                Nullable:  true
+                                                Type:      string
+                                              Values:
+                                                Items:
+                                                  Nullable:  true
+                                                  Type:      string
+                                                Nullable:    true
+                                                Type:        array
+                                            Type:            object
+                                          Nullable:          true
+                                          Type:              array
+                                        Match Labels:
+                                          Additional Properties:
+                                            Nullable:  true
+                                            Type:      string
+                                          Nullable:    true
+                                          Type:        object
+                                      Type:            object
+                                    Namespaces:
+                                      Items:
+                                        Nullable:  true
+                                        Type:      string
+                                      Nullable:    true
+                                      Type:        array
+                                    Topology Key:
+                                      Nullable:  true
+                                      Type:      string
+                                  Type:          object
+                                Weight:
+                                  Type:  integer
+                              Type:      object
+                            Nullable:    true
+                            Type:        array
+                          Required During Scheduling Ignored During Execution:
+                            Items:
+                              Properties:
+                                Label Selector:
+                                  Nullable:  true
+                                  Properties:
+                                    Match Expressions:
+                                      Items:
+                                        Properties:
+                                          Key:
+                                            Nullable:  true
+                                            Type:      string
+                                          Operator:
+                                            Nullable:  true
+                                            Type:      string
+                                          Values:
+                                            Items:
+                                              Nullable:  true
+                                              Type:      string
+                                            Nullable:    true
+                                            Type:        array
+                                        Type:            object
+                                      Nullable:          true
+                                      Type:              array
+                                    Match Labels:
+                                      Additional Properties:
+                                        Nullable:  true
+                                        Type:      string
+                                      Nullable:    true
+                                      Type:        object
+                                  Type:            object
+                                Namespace Selector:
+                                  Nullable:  true
+                                  Properties:
+                                    Match Expressions:
+                                      Items:
+                                        Properties:
+                                          Key:
+                                            Nullable:  true
+                                            Type:      string
+                                          Operator:
+                                            Nullable:  true
+                                            Type:      string
+                                          Values:
+                                            Items:
+                                              Nullable:  true
+                                              Type:      string
+                                            Nullable:    true
+                                            Type:        array
+                                        Type:            object
+                                      Nullable:          true
+                                      Type:              array
+                                    Match Labels:
+                                      Additional Properties:
+                                        Nullable:  true
+                                        Type:      string
+                                      Nullable:    true
+                                      Type:        object
+                                  Type:            object
+                                Namespaces:
+                                  Items:
+                                    Nullable:  true
+                                    Type:      string
+                                  Nullable:    true
+                                  Type:        array
+                                Topology Key:
+                                  Nullable:  true
+                                  Type:      string
+                              Type:          object
+                            Nullable:        true
+                            Type:            array
+                        Type:                object
+                      Pod Anti Affinity:
+                        Nullable:  true
+                        Properties:
+                          Preferred During Scheduling Ignored During Execution:
+                            Items:
+                              Properties:
+                                Pod Affinity Term:
+                                  Properties:
+                                    Label Selector:
+                                      Nullable:  true
+                                      Properties:
+                                        Match Expressions:
+                                          Items:
+                                            Properties:
+                                              Key:
+                                                Nullable:  true
+                                                Type:      string
+                                              Operator:
+                                                Nullable:  true
+                                                Type:      string
+                                              Values:
+                                                Items:
+                                                  Nullable:  true
+                                                  Type:      string
+                                                Nullable:    true
+                                                Type:        array
+                                            Type:            object
+                                          Nullable:          true
+                                          Type:              array
+                                        Match Labels:
+                                          Additional Properties:
+                                            Nullable:  true
+                                            Type:      string
+                                          Nullable:    true
+                                          Type:        object
+                                      Type:            object
+                                    Namespace Selector:
+                                      Nullable:  true
+                                      Properties:
+                                        Match Expressions:
+                                          Items:
+                                            Properties:
+                                              Key:
+                                                Nullable:  true
+                                                Type:      string
+                                              Operator:
+                                                Nullable:  true
+                                                Type:      string
+                                              Values:
+                                                Items:
+                                                  Nullable:  true
+                                                  Type:      string
+                                                Nullable:    true
+                                                Type:        array
+                                            Type:            object
+                                          Nullable:          true
+                                          Type:              array
+                                        Match Labels:
+                                          Additional Properties:
+                                            Nullable:  true
+                                            Type:      string
+                                          Nullable:    true
+                                          Type:        object
+                                      Type:            object
+                                    Namespaces:
+                                      Items:
+                                        Nullable:  true
+                                        Type:      string
+                                      Nullable:    true
+                                      Type:        array
+                                    Topology Key:
+                                      Nullable:  true
+                                      Type:      string
+                                  Type:          object
+                                Weight:
+                                  Type:  integer
+                              Type:      object
+                            Nullable:    true
+                            Type:        array
+                          Required During Scheduling Ignored During Execution:
+                            Items:
+                              Properties:
+                                Label Selector:
+                                  Nullable:  true
+                                  Properties:
+                                    Match Expressions:
+                                      Items:
+                                        Properties:
+                                          Key:
+                                            Nullable:  true
+                                            Type:      string
+                                          Operator:
+                                            Nullable:  true
+                                            Type:      string
+                                          Values:
+                                            Items:
+                                              Nullable:  true
+                                              Type:      string
+                                            Nullable:    true
+                                            Type:        array
+                                        Type:            object
+                                      Nullable:          true
+                                      Type:              array
+                                    Match Labels:
+                                      Additional Properties:
+                                        Nullable:  true
+                                        Type:      string
+                                      Nullable:    true
+                                      Type:        object
+                                  Type:            object
+                                Namespace Selector:
+                                  Nullable:  true
+                                  Properties:
+                                    Match Expressions:
+                                      Items:
+                                        Properties:
+                                          Key:
+                                            Nullable:  true
+                                            Type:      string
+                                          Operator:
+                                            Nullable:  true
+                                            Type:      string
+                                          Values:
+                                            Items:
+                                              Nullable:  true
+                                              Type:      string
+                                            Nullable:    true
+                                            Type:        array
+                                        Type:            object
+                                      Nullable:          true
+                                      Type:              array
+                                    Match Labels:
+                                      Additional Properties:
+                                        Nullable:  true
+                                        Type:      string
+                                      Nullable:    true
+                                      Type:        object
+                                  Type:            object
+                                Namespaces:
+                                  Items:
+                                    Nullable:  true
+                                    Type:      string
+                                  Nullable:    true
+                                  Type:        array
+                                Topology Key:
+                                  Nullable:  true
+                                  Type:      string
+                              Type:          object
+                            Nullable:        true
+                            Type:            array
+                        Type:                object
+                    Type:                    object
+                  Override Resource Requirements:
+                    Nullable:  true
+                    Properties:
+                      Limits:
+                        Additional Properties:
+                          Nullable:  true
+                          Type:      string
+                        Nullable:    true
+                        Type:        object
+                      Requests:
+                        Additional Properties:
+                          Nullable:  true
+                          Type:      string
+                        Nullable:    true
+                        Type:        object
+                    Type:            object
+                Type:                object
+              Kubernetes Version:
+                Nullable:  true
+                Type:      string
+              Local Cluster Auth Endpoint:
+                Properties:
+                  Ca Certs:
+                    Nullable:  true
+                    Type:      string
+                  Enabled:
+                    Type:  boolean
+                  Fqdn:
+                    Nullable:  true
+                    Type:      string
+                Type:          object
+              Redeploy System Agent Generation:
+                Type:  integer
+              Rke Config:
+                Nullable:  true
+                Properties:
+                  Additional Manifest:
+                    Nullable:  true
+                    Type:      string
+                  Chart Values:
+                    Nullable:                                      true
+                    Type:                                          object
+                    X - Kubernetes - Preserve - Unknown - Fields:  true
+                  Etcd:
+                    Nullable:  true
+                    Properties:
+                      Disable Snapshots:
+                        Type:  boolean
+                      s3:
+                        Nullable:  true
+                        Properties:
+                          Bucket:
+                            Nullable:  true
+                            Type:      string
+                          Cloud Credential Name:
+                            Nullable:  true
+                            Type:      string
+                          Endpoint:
+                            Nullable:  true
+                            Type:      string
+                          Endpoint CA:
+                            Nullable:  true
+                            Type:      string
+                          Folder:
+                            Nullable:  true
+                            Type:      string
+                          Region:
+                            Nullable:  true
+                            Type:      string
+                          Skip SSL Verify:
+                            Type:  boolean
+                        Type:      object
+                      Snapshot Retention:
+                        Type:  integer
+                      Snapshot Schedule Cron:
+                        Nullable:  true
+                        Type:      string
+                    Type:          object
+                  Etcd Snapshot Create:
+                    Nullable:  true
+                    Properties:
+                      Generation:
+                        Type:  integer
+                    Type:      object
+                  Etcd Snapshot Restore:
+                    Nullable:  true
+                    Properties:
+                      Generation:
+                        Type:  integer
+                      Name:
+                        Nullable:  true
+                        Type:      string
+                      Restore RKE Config:
+                        Nullable:  true
+                        Type:      string
+                    Type:          object
+                  Infrastructure Ref:
+                    Nullable:  true
+                    Properties:
+                      API Version:
+                        Nullable:  true
+                        Type:      string
+                      Field Path:
+                        Nullable:  true
+                        Type:      string
+                      Kind:
+                        Nullable:  true
+                        Type:      string
+                      Name:
+                        Nullable:  true
+                        Type:      string
+                      Namespace:
+                        Nullable:  true
+                        Type:      string
+                      Resource Version:
+                        Nullable:  true
+                        Type:      string
+                      UID:
+                        Nullable:  true
+                        Type:      string
+                    Type:          object
+                  Machine Global Config:
+                    Nullable:                                      true
+                    Type:                                          object
+                    X - Kubernetes - Preserve - Unknown - Fields:  true
+                  Machine Pool Defaults:
+                    Properties:
+                      Hostname Length Limit:
+                        Type:  integer
+                    Type:      object
+                  Machine Pools:
+                    Items:
+                      Properties:
+                        Cloud Credential Secret Name:
+                          Nullable:  true
+                          Type:      string
+                        Control Plane Role:
+                          Type:  boolean
+                        Display Name:
+                          Nullable:  true
+                          Type:      string
+                        Drain Before Delete:
+                          Type:  boolean
+                        Drain Before Delete Timeout:
+                          Nullable:  true
+                          Type:      string
+                        Dynamic Schema Spec:
+                          Nullable:  true
+                          Type:      string
+                        Etcd Role:
+                          Type:  boolean
+                        Hostname Length Limit:
+                          Type:  integer
+                        Labels:
+                          Additional Properties:
+                            Nullable:  true
+                            Type:      string
+                          Nullable:    true
+                          Type:        object
+                        Machine Config Ref:
+                          Nullable:  true
+                          Properties:
+                            API Version:
+                              Nullable:  true
+                              Type:      string
+                            Field Path:
+                              Nullable:  true
+                              Type:      string
+                            Kind:
+                              Nullable:  true
+                              Type:      string
+                            Name:
+                              Nullable:  true
+                              Type:      string
+                            Namespace:
+                              Nullable:  true
+                              Type:      string
+                            Resource Version:
+                              Nullable:  true
+                              Type:      string
+                            UID:
+                              Nullable:  true
+                              Type:      string
+                          Type:          object
+                        Machine Deployment Annotations:
+                          Additional Properties:
+                            Nullable:  true
+                            Type:      string
+                          Nullable:    true
+                          Type:        object
+                        Machine Deployment Labels:
+                          Additional Properties:
+                            Nullable:  true
+                            Type:      string
+                          Nullable:    true
+                          Type:        object
+                        Machine OS:
+                          Nullable:  true
+                          Type:      string
+                        Max Unhealthy:
+                          Nullable:  true
+                          Type:      string
+                        Name:
+                          Nullable:  true
+                          Type:      string
+                        Node Startup Timeout:
+                          Nullable:  true
+                          Type:      string
+                        Paused:
+                          Type:  boolean
+                        Quantity:
+                          Nullable:  true
+                          Type:      integer
+                        Rolling Update:
+                          Nullable:  true
+                          Properties:
+                            Max Surge:
+                              Nullable:  true
+                              Type:      string
+                            Max Unavailable:
+                              Nullable:  true
+                              Type:      string
+                          Type:          object
+                        Taints:
+                          Items:
+                            Properties:
+                              Effect:
+                                Nullable:  true
+                                Type:      string
+                              Key:
+                                Nullable:  true
+                                Type:      string
+                              Time Added:
+                                Nullable:  true
+                                Type:      string
+                              Value:
+                                Nullable:  true
+                                Type:      string
+                            Type:          object
+                          Nullable:        true
+                          Type:            array
+                        Unhealthy Node Timeout:
+                          Nullable:  true
+                          Type:      string
+                        Unhealthy Range:
+                          Nullable:  true
+                          Type:      string
+                        Worker Role:
+                          Type:  boolean
+                      Required:
+                        machineConfigRef
+                        name
+                      Type:    object
+                    Nullable:  true
+                    Type:      array
+                  Machine Selector Config:
+                    Items:
+                      Properties:
+                        Config:
+                          Nullable:                                      true
+                          Type:                                          object
+                          X - Kubernetes - Preserve - Unknown - Fields:  true
+                        Machine Label Selector:
+                          Nullable:  true
+                          Properties:
+                            Match Expressions:
+                              Items:
+                                Properties:
+                                  Key:
+                                    Nullable:  true
+                                    Type:      string
+                                  Operator:
+                                    Nullable:  true
+                                    Type:      string
+                                  Values:
+                                    Items:
+                                      Nullable:  true
+                                      Type:      string
+                                    Nullable:    true
+                                    Type:        array
+                                Type:            object
+                              Nullable:          true
+                              Type:              array
+                            Match Labels:
+                              Additional Properties:
+                                Nullable:  true
+                                Type:      string
+                              Nullable:    true
+                              Type:        object
+                          Type:            object
+                      Type:                object
+                    Nullable:              true
+                    Type:                  array
+                  Machine Selector Files:
+                    Items:
+                      Properties:
+                        File Sources:
+                          Items:
+                            Properties:
+                              Config Map:
+                                Properties:
+                                  Default Permissions:
+                                    Nullable:  true
+                                    Type:      string
+                                  Items:
+                                    Items:
+                                      Properties:
+                                        Dynamic:
+                                          Type:  boolean
+                                        Hash:
+                                          Nullable:  true
+                                          Type:      string
+                                        Key:
+                                          Nullable:  true
+                                          Type:      string
+                                        Path:
+                                          Nullable:  true
+                                          Type:      string
+                                        Permissions:
+                                          Nullable:  true
+                                          Type:      string
+                                      Type:          object
+                                    Nullable:        true
+                                    Type:            array
+                                  Name:
+                                    Nullable:  true
+                                    Type:      string
+                                Type:          object
+                              Secret:
+                                Properties:
+                                  Default Permissions:
+                                    Nullable:  true
+                                    Type:      string
+                                  Items:
+                                    Items:
+                                      Properties:
+                                        Dynamic:
+                                          Type:  boolean
+                                        Hash:
+                                          Nullable:  true
+                                          Type:      string
+                                        Key:
+                                          Nullable:  true
+                                          Type:      string
+                                        Path:
+                                          Nullable:  true
+                                          Type:      string
+                                        Permissions:
+                                          Nullable:  true
+                                          Type:      string
+                                      Type:          object
+                                    Nullable:        true
+                                    Type:            array
+                                  Name:
+                                    Nullable:  true
+                                    Type:      string
+                                Type:          object
+                            Type:              object
+                          Nullable:            true
+                          Type:                array
+                        Machine Label Selector:
+                          Nullable:  true
+                          Properties:
+                            Match Expressions:
+                              Items:
+                                Properties:
+                                  Key:
+                                    Nullable:  true
+                                    Type:      string
+                                  Operator:
+                                    Nullable:  true
+                                    Type:      string
+                                  Values:
+                                    Items:
+                                      Nullable:  true
+                                      Type:      string
+                                    Nullable:    true
+                                    Type:        array
+                                Type:            object
+                              Nullable:          true
+                              Type:              array
+                            Match Labels:
+                              Additional Properties:
+                                Nullable:  true
+                                Type:      string
+                              Nullable:    true
+                              Type:        object
+                          Type:            object
+                      Type:                object
+                    Nullable:              true
+                    Type:                  array
+                  Provision Generation:
+                    Type:  integer
+                  Registries:
+                    Nullable:  true
+                    Properties:
+                      Configs:
+                        Additional Properties:
+                          Properties:
+                            Auth Config Secret Name:
+                              Nullable:  true
+                              Type:      string
+                            Ca Bundle:
+                              Nullable:  true
+                              Type:      string
+                            Insecure Skip Verify:
+                              Type:  boolean
+                            Tls Secret Name:
+                              Nullable:  true
+                              Type:      string
+                          Type:          object
+                        Nullable:        true
+                        Type:            object
+                      Mirrors:
+                        Additional Properties:
+                          Properties:
+                            Endpoint:
+                              Items:
+                                Nullable:  true
+                                Type:      string
+                              Nullable:    true
+                              Type:        array
+                            Rewrite:
+                              Additional Properties:
+                                Nullable:  true
+                                Type:      string
+                              Nullable:    true
+                              Type:        object
+                          Type:            object
+                        Nullable:          true
+                        Type:              object
+                    Type:                  object
+                  Rotate Certificates:
+                    Nullable:  true
+                    Properties:
+                      Generation:
+                        Type:  integer
+                      Services:
+                        Items:
+                          Nullable:  true
+                          Type:      string
+                        Nullable:    true
+                        Type:        array
+                    Type:            object
+                  Rotate Encryption Keys:
+                    Nullable:  true
+                    Properties:
+                      Generation:
+                        Type:  integer
+                    Type:      object
+                  Upgrade Strategy:
+                    Properties:
+                      Control Plane Concurrency:
+                        Nullable:  true
+                        Type:      string
+                      Control Plane Drain Options:
+                        Properties:
+                          Delete Empty Dir Data:
+                            Type:  boolean
+                          Disable Eviction:
+                            Type:  boolean
+                          Enabled:
+                            Type:  boolean
+                          Force:
+                            Type:  boolean
+                          Grace Period:
+                            Type:  integer
+                          Ignore Daemon Sets:
+                            Nullable:  true
+                            Type:      boolean
+                          Ignore Errors:
+                            Type:  boolean
+                          Post Drain Hooks:
+                            Items:
+                              Properties:
+                                Annotation:
+                                  Nullable:  true
+                                  Type:      string
+                              Type:          object
+                            Nullable:        true
+                            Type:            array
+                          Pre Drain Hooks:
+                            Items:
+                              Properties:
+                                Annotation:
+                                  Nullable:  true
+                                  Type:      string
+                              Type:          object
+                            Nullable:        true
+                            Type:            array
+                          Skip Wait For Delete Timeout Seconds:
+                            Type:  integer
+                          Timeout:
+                            Type:  integer
+                        Type:      object
+                      Worker Concurrency:
+                        Nullable:  true
+                        Type:      string
+                      Worker Drain Options:
+                        Properties:
+                          Delete Empty Dir Data:
+                            Type:  boolean
+                          Disable Eviction:
+                            Type:  boolean
+                          Enabled:
+                            Type:  boolean
+                          Force:
+                            Type:  boolean
+                          Grace Period:
+                            Type:  integer
+                          Ignore Daemon Sets:
+                            Nullable:  true
+                            Type:      boolean
+                          Ignore Errors:
+                            Type:  boolean
+                          Post Drain Hooks:
+                            Items:
+                              Properties:
+                                Annotation:
+                                  Nullable:  true
+                                  Type:      string
+                              Type:          object
+                            Nullable:        true
+                            Type:            array
+                          Pre Drain Hooks:
+                            Items:
+                              Properties:
+                                Annotation:
+                                  Nullable:  true
+                                  Type:      string
+                              Type:          object
+                            Nullable:        true
+                            Type:            array
+                          Skip Wait For Delete Timeout Seconds:
+                            Type:  integer
+                          Timeout:
+                            Type:  integer
+                        Type:      object
+                    Type:          object
+                Type:              object
+            Type:                  object
+          Status:
+            Properties:
+              Agent Deployed:
+                Type:  boolean
+              Client Secret Name:
+                Nullable:  true
+                Type:      string
+              Cluster Name:
+                Nullable:  true
+                Type:      string
+              Conditions:
+                Items:
+                  Properties:
+                    Last Transition Time:
+                      Nullable:  true
+                      Type:      string
+                    Last Update Time:
+                      Nullable:  true
+                      Type:      string
+                    Message:
+                      Nullable:  true
+                      Type:      string
+                    Reason:
+                      Nullable:  true
+                      Type:      string
+                    Status:
+                      Nullable:  true
+                      Type:      string
+                    Type:
+                      Nullable:  true
+                      Type:      string
+                  Type:          object
+                Nullable:        true
+                Type:            array
+              Observed Generation:
+                Type:  integer
+              Ready:
+                Type:  boolean
+            Type:      object
+        Type:          object
+    Served:            true
+    Storage:           true
+    Subresources:
+      Status:
+Status:
+  Accepted Names:
+    Kind:       Cluster
+    List Kind:  ClusterList
+    Plural:     clusters
+    Singular:   cluster
+  Conditions:
+    Last Transition Time:  2023-09-20T07:04:37Z
+    Message:               no conflicts found
+    Reason:                NoConflicts
+    Status:                True
+    Type:                  NamesAccepted
+    Last Transition Time:  2023-09-20T07:04:37Z
+    Message:               the initial names have been accepted
+    Reason:                InitialNamesAccepted
+    Status:                True
+    Type:                  Established
+  Stored Versions:
+    v1
+Events:  <none>

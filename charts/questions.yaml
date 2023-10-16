@@ -60,6 +60,46 @@ questions:
     description: "Local auth access endpoint CACerts"
     type: multiline
     group: "Auth Access Endpoint"
+- variable: rke.machineGlobalConfig.auditPolicyFile
+  default: ""
+  description: Path to the file that defines the audit policy configuration
+  label: "Audit policy configuration"
+  type: string
+  required: true
+  group: "machineGlobalConfig"     
+- variable: rke.machineGlobalConfig.cni
+  default: calico
+  description: "CNI Plugin to deploy, one of none, canal, cilium (default: "canal")"
+  label: "CNI Plugin"
+  type: enum
+  required: true
+  options:
+  - calico
+  - Canal
+  - Cilium
+  - Multus
+  group: "machineGlobalConfig"
+- variable: rke.machineGlobalConfig.clusterCidr
+  default: "10.42.0.0/16"
+  description: "IPv4/IPv6 network CIDRs to use for pod IPs"
+  label: "Cluster cidr"
+  type: string
+  required: true
+  group: "machineGlobalConfig"    
+- variable: rke.machineGlobalConfig.clusterDNS
+  default: "10.43.0.10"
+  description: IPv4 Cluster IP for coredns service. Should be in your service-cidr range (default: 10.43.0.10)
+  label: "Cluster IP for coredns service"
+  type: string
+  required: true
+  group: "machineGlobalConfig"       
+- variable: rke.machineGlobalConfig.clusterDomain
+  default: "cluster.local"
+  description: Cluster Domain (default: "cluster.local")
+  label: "Cluster Domain"
+  type: string
+  required: true
+  group: "machineGlobalConfig"  
 - variable: monitoring.enabled
   default: false
   label: "Enable monitoring"
