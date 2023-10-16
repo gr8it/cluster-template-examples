@@ -5,9 +5,9 @@ entries:
       catalog.cattle.io/namespace: fleet-default
       catalog.cattle.io/type: cluster-template
     apiVersion: v1
-    created: "2023-10-16T18:30:02.564500841+02:00"
+    created: "2023-10-16T18:32:55.72404514+02:00"
     description: Cluster template for rke2
-    digest: 83e0643aba3108c96550b90d8d39172b8a9cc8ce544636ad22a20f4bf597b0f8
+    digest: 3a94fbde58646aa89d2466ebccf92ae0a04267ac71b649c4f4258b9d0a7a5625
     name: cluster-template
     urls:
     - cluster-template-0.0.3.tgz
@@ -16,7 +16,7 @@ entries:
       catalog.cattle.io/namespace: fleet-default
       catalog.cattle.io/type: cluster-template
     apiVersion: v1
-    created: "2023-10-16T18:30:02.563694539+02:00"
+    created: "2023-10-16T18:32:55.723432331+02:00"
     description: Cluster template for rke2
     digest: decb5abeaa67f3c1bf3c0d1d4d4ca4a65fed439b28419acadc34a88b58c80ba4
     name: cluster-template
@@ -27,11 +27,11 @@ entries:
       catalog.cattle.io/namespace: fleet-default
       catalog.cattle.io/type: cluster-template
     apiVersion: v1
-    created: "2023-10-16T18:30:02.563027938+02:00"
+    created: "2023-10-16T18:32:55.722916924+02:00"
     description: Cluster template for rke2
     digest: d372363c814ac79e7d1f4b877e9b47ec39eaf3fde5a70137a0074dfa70e3dd2c
     name: cluster-template
     urls:
     - cluster-template-0.0.1.tgz
     version: 0.0.1
-generated: "2023-10-16T18:30:02.562340037+02:00"
+generated: "2023-10-16T18:32:55.722257214+02:00"
