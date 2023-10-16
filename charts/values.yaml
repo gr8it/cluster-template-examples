@@ -32,7 +32,7 @@ rke:
     clusterCidr: "10.42.0.0/16"
     clusterDns: "10.43.0.10"
     clusterDomain: "cluster.local"
-    
+    disable: {}
 
 # specify user principal ids to be assiged as cluster members
 # clusterMembers:
