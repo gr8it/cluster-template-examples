@@ -18,7 +18,7 @@ cloudprovider: "digitalocean"
 kubernetesVersion: ""
 
 # general RKE options
-rke:
+rkeConfig:
   # enable local auth endpoint
   localClusterAuthEndpoint:
     enabled: false
@@ -26,13 +26,7 @@ rke:
   # fqdn: foo.bar.example
   # specify cacert of local access endpoint
   # caCerts: ""
-  machineGlobalConfig:
-    auditPolicyFile: ""
-    cni: calico
-    clusterCidr: "10.42.0.0/16"
-    clusterDns: "10.43.0.10"
-    clusterDomain: "cluster.local"
-    disable: []
+  chartValues:
   etcd:
     disableSnapshots: false
     snapshotRetention: 5
@@ -45,7 +39,15 @@ rke:
       endpointCA: ''
       folder: ''
       region: ''
-      skipSSLVerify: false
+      skipSSLVerify: false  
+  machineGlobalConfig:
+    auditPolicyFile: ""
+    cni: calico
+    clusterCidr: "10.42.0.0/16"
+    clusterDns: "10.43.0.10"
+    clusterDomain: "cluster.local"
+    disable: []
+
 # specify user principal ids to be assiged as cluster members
 # clusterMembers:
 # - principalName: "local://u-z8zl5"

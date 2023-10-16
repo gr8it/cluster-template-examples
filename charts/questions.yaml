@@ -40,7 +40,14 @@ questions:
   - v1.22.5+rke2r1
   - v1.21.6+rke2r1
   group: "General"
-- variable: rke.localClusterAuthEndpoint.enabled
+- variable: rkeConfig.chartValues
+  default: ""
+  description: Chart values
+  label: "Chart valuesn"
+  type: string
+  required: false
+  group: "rkeConfig"       
+- variable: rkeConfig.localClusterAuthEndpoint.enabled
   default: false
   label: "Local Auth endpoint"
   description: "Enable local auth access endpoint"
@@ -48,26 +55,26 @@ questions:
   group: "Auth Access Endpoint"
   show_subquestion_if: true
   subquestions:
-  - variable: rke.localClusterAuthEndpoint.fqdn
+  - variable: rkeConfig.localClusterAuthEndpoint.fqdn
     default:
     description: "Local auth access endpoint FQDN"
     label: "Auth Endpoint FQDN"
     type: hostname
     group: "Auth Access Endpoint"
-  - variable: rke.localClusterAuthEndpoint.caCerts
+  - variable: rkeConfig.localClusterAuthEndpoint.caCerts
     default:
     label: "Auth Endpoint Cacerts"
     description: "Local auth access endpoint CACerts"
     type: multiline
     group: "Auth Access Endpoint"
-- variable: rke.machineGlobalConfig.auditPolicyFile
+- variable: rkeConfig.machineGlobalConfig.auditPolicyFile
   default: ""
   description: Path to the file that defines the audit policy configuration
   label: "Audit policy configuration"
   type: string
   required: true
   group: "machineGlobalConfig"     
-- variable: rke.machineGlobalConfig.cni
+- variable: rkeConfig.machineGlobalConfig.cni
   default: calico
   description: "CNI Plugin to deploy, one of none, canal, cilium (default: "canal")"
   label: "CNI Plugin"
@@ -79,56 +86,56 @@ questions:
   - Cilium
   - Multus
   group: "machineGlobalConfig"
-- variable: rke.machineGlobalConfig.clusterCidr
+- variable: rkeConfig.machineGlobalConfig.clusterCidr
   default: "10.42.0.0/16"
   description: "IPv4/IPv6 network CIDRs to use for pod IPs"
   label: "Cluster cidr"
   type: string
   required: true
   group: "machineGlobalConfig"    
-- variable: rke.machineGlobalConfig.clusterDNS
+- variable: rkeConfig.machineGlobalConfig.clusterDNS
   default: "10.43.0.10"
   description: IPv4 Cluster IP for coredns service. Should be in your service-cidr range (default: 10.43.0.10)
   label: "Cluster IP for coredns service"
   type: string
   required: true
   group: "machineGlobalConfig"       
-- variable: rke.machineGlobalConfig.clusterDomain
+- variable: rkeConfig.machineGlobalConfig.clusterDomain
   default: "cluster.local"
   description: Cluster Domain (default: "cluster.local")
   label: "Cluster Domain"
   type: string
   required: true
   group: "machineGlobalConfig"  
-- variable: rke.machineGlobalConfig.disable
+- variable: rkeConfig.machineGlobalConfig.disable
   default: []
   description: Do not deploy packaged components and delete any deployed components (valid items: rke2-coredns, rke2-ingress-nginx, rke2-kube-proxy, rke2-metrics-server)
   label: "Do not deploy packaged components"
   type: string
   required: true
   group: "machineGlobalConfig"    
-- variable: rke.etcd.disableSnapshots
+- variable: rkeConfig.etcd.disableSnapshots
   default: false
   description: Disable automatic etcd snapshots
   label: "Disable automatic etcd snapshots"
   type: boolean
   required: true
   group: "etcd"
-- variable: rke.etcd.snapshotRetention
+- variable: rkeConfig.etcd.snapshotRetention
   default: 5
   description: Number of snapshots to retain
   label: "Number of snapshots to retain"
   type: int
   required: true
   group: "etcd"
-- variable: rke.etcd.snapshotScheduleCron
+- variable: rkeConfig.etcd.snapshotScheduleCron
   default: "* */5 * * *"
   description: Snapshot interval time in cron
   label: "Snapshot interval time in cron"
   type: int
   required: true
   group: "etcd"
-- variable: rke.etcd.S3.enabled
+- variable: rkeConfig.etcd.S3.enabled
   default: false
   description: Backup Snapshots to S3
   label: "Backup Snapshots to S3"
@@ -137,43 +144,43 @@ questions:
   group: "S3"
   show_subquestion_if: true
   subquestions:
-  - variable: rke.etcd.S3.bucket
+  - variable: rkeConfig.etcd.S3.bucket
     default: ''
     description: "S3 bucket"
     label: "S3 bucket"
     type: string
     group: "S3" 
-  - variable: rke.etcd.S3.cloudCredentialName
+  - variable: rkeConfig.etcd.S3.cloudCredentialName
     default: ''
     description: "Existing secret for Authentification to S3 bucket"
     label: "Existing secret for Authentification to S3 bucket"
     type: string
     group: "S3"
-  - variable: rke.etcd.S3.endpoint
+  - variable: rkeConfig.etcd.S3.endpoint
     default: ''
     description: "S3 bucket endpoint"
     label: "S3 bucket endpoint"
     type: string
     group: "S3" 
-  - variable: rke.etcd.S3.endpointCA
+  - variable: rkeConfig.etcd.S3.endpointCA
     default: ''
     description: "S3 bucket endpoint CA cert"
     label: "S3 bucket endpoint CA cer"
     type: string
     group: "S3"
-  - variable: rke.etcd.S3.folder
+  - variable: rkeConfig.etcd.S3.folder
     default: ''
     description: "S3 bucket folder"
     label: "S3 bucket folder"
     type: string
     group: "S3"
-  - variable: rke.etcd.S3.region
+  - variable: rkeConfig.etcd.S3.region
     default: ''
     description: "S3 bucket region"
     label: "S3 bucket region"
     type: string
     group: "S3" 
-  - variable: rke.etcd.S3.skipSSLVerify
+  - variable: rkeConfig.etcd.S3.skipSSLVerify
     default: false
     description: "Accept any certificate for S3 endpint"
     label: "Accept any certificate for S3 endpint"
