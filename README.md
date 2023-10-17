@@ -2,6 +2,10 @@
 
 This project contains rke2 cluster template helm chart, which can be applied with values.yaml as configurations to create clusters.
 
+## Reference
+https://ranchermanager.docs.rancher.com/reference-guides/cluster-configuration/rancher-server-configuration/rke2-cluster-configuration
+
+
 ### How to use
 
 The general cluster configuration options are available through [values.yaml](./charts/values.yaml).
@@ -180,3 +184,6 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+
+https://github.com/rancher/rke2-charts/tree/main-source/packages/rke2-cilium

@@ -12,6 +12,13 @@ cluster:
 # specify cloud credential secret name, do not need to be provided if using custom driver
 cloudCredentialSecretName: ""
 
+# defaultPodSecurityAdmissionConfigurationTemplateName: ''
+# defaultPodSecurityPolicyTemplateName: '' 
+# fleetAgentDeploymentCustomization:  ''
+
+# enable network policy, project isolation
+enableNetworkPolicy: true
+
 # specify cloud provider, options are amazonec2, digitalocean, azure, vsphere or custom
 cloudprovider: "digitalocean"
 
@@ -47,6 +54,27 @@ rkeConfig:
     clusterDns: "10.43.0.10"
     clusterDomain: "cluster.local"
     disable: []
+
+    # Port range to reserve for services with NodePort visibility (default: "30000-32767")
+    # serviceNodePortRange
+    # IPv4/IPv6 network CIDRs to use for service IPs (default: 10.43.0.0/16)
+    # serviceCidr: "10.0.0.0/28"
+
+    # Expose etcd metrics to client interface. (Default false)
+    etcdExposeMetrics: false    
+    # Port range to reserve for services with NodePort visibility (default: "30000-32767")
+    # serviceNodePortRange: "30000-32767"
+    # IPv4/IPv6 network CIDRs to use for service IPs (default: 10.43.0.0/16)
+    # serviceCidr: "10.43.0.0/16" 
+    # Customized flag for kube-apiserver process
+    # kubeApiserverArg: ""
+    # Customized flag for kube-scheduler process
+    # kubeSchedulerArg: ""
+    # Customized flag for kube-controller-manager process
+    # kubeControllerManagerArg: ""
+    # Enable Secret encryption at rest 
+    secretsEncryption: { {.Value.rkeConfig.machineGlobalConfig.secretsEncryption }}
+
 
 # specify user principal ids to be assiged as cluster members
 # clusterMembers:

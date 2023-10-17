@@ -12,23 +12,47 @@ metadata:
   name: {{ .Values.cluster.name }}
   namespace: fleet-default
 spec:
+  {{- if .Values.agentEnvs }}
+  agentEnvVars:
+{{ toYaml .Values.agentEnvs | indent 4 }}
+  {{- end }}
   {{- if .Values.cloudCredentialSecretName }}
   cloudCredentialSecretName: {{ .Values.cloudCredentialSecretName }}
   {{- end }}
-  {{- if .Values.kubernetesVersion }}
+  {{- if .Values.defaultPodSecurityAdmissionConfigurationTemplateName }}
+  defaultPodSecurityAdmissionConfigurationTemplateName: {{ .Values.defaultPodSecurityAdmissionConfigurationTemplateName }}
+  {{- end }}  
+  {{- if .Values.defaultPodSecurityPolicyTemplateName }} 
+  defaultPodSecurityPolicyTemplateName: {{ .Values.defaultPodSecurityPolicyTemplateName }} 
+  {{- end }}  
+  {{- if .Values.fleetAgentDeploymentCustomization }}
+  fleetAgentDeploymentCustomization:  {{ .Values.fleetAgentDeploymentCustomization }}   
+  {{- end }}  
+  {{- if .Values.kubernetesVersion }}  
   kubernetesVersion: {{ .Values.kubernetesVersion }}
   {{- end }}
   {{- if .Values.rkeConfig.localClusterAuthEndpoint.enabled }}
   localClusterAuthEndpoint:
     enabled: {{ .Values.rkeConfig.localClusterAuthEndpoint.enabled }}
+    {{- if .Values.rkeConfig.localClusterAuthEndpoint.fqdn }}
     fqdn: {{ .Values.rkeConfig.localClusterAuthEndpoint.fqdn }}
+    {{- end }}
+    {{- if .Values.rkeConfig.localClusterAuthEndpoint.caCerts }}
     caCerts: {{ .Values.rkeConfig.localClusterAuthEndpoint.caCerts }}
+    {{- end }}
   {{- end }}
-  # enable network policy
-  enableNetworkPolicy: true
+  {{- if .Values.enableNetworkPolicy }}  
+  # enable network policy, project isolation
+  enableNetworkPolicy: {{ .Values.enableNetworkPolicy }}
+  {{- end }}
   # specify rancher helm chart values deployed into downstream cluster
   # rancherValues: {}
   rkeConfig:
+    #
+    # all possible values are liste here https://docs.rke2.io/reference/server_config
+    #
+    #
+    #
     {{- if ne .Values.cloudprovider "custom" }}
     machinePools:
     {{- if .Values.nodepools }} {{ range $index, $nodepool := .Values.nodepools }}
@@ -135,9 +159,6 @@ spec:
         skipSSLVerify: {{ .Values.rkeConfig.etcd.S3.skipSSLVerify }}
         {{- end }}    
     machineGlobalConfig:
-      ## TODO
-      # Path to the file that defines the audit policy configuration
-      audit-policy-file: {{ .Values.rkeConfig.machineGlobalConfig.auditPolicyFile }}
       # IPv4/IPv6 network CIDRs to use for pod IPs (default: 10.42.0.0/16)
       cluster-cidr: {{ .Values.rkeConfig.machineGlobalConfig.clusterCidr }}
       # IPv4 Cluster IP for coredns service. Should be in your service-cidr range (default: 10.43.0.10)
@@ -149,31 +170,49 @@ spec:
       # Do not deploy packaged components and delete any deployed components (valid items: rke2-coredns, rke2-ingress-nginx, rke2-kube-proxy, rke2-metrics-server)
       disable: {{ .Values.rkeConfig.machineGlobalConfig.disable }}
       ## todo
-      ## disable-kube-proxy: false
+      disable-kube-proxy: false
+      
+      {{- if .Values.rkeConfig.machineGlobalConfig.etcdExposeMetrics }} 
       # Expose etcd metrics to client interface. (Default false)
-      # etcd-expose-metrics: false      
-      ## todo
-      # service-node-port-range: 1024-1084
+      etcd-expose-metrics: {{ .Values.rkeConfig.machineGlobalConfig.etcdExposeMetrics }} 
+      {{- end }}     
+      {{- if .Values.rkeConfig.machineGlobalConfig.etcdExposeMetrics }} 
+      # Port range to reserve for services with NodePort visibility (default: "30000-32767")
+      service-node-port-range: {{ .Values.rkeConfig.machineGlobalConfig.serviceNodePortRange }}
+      {{- end }}   
+      {{- if .Values.rkeConfig.machineGlobalConfig.serviceCidr }} 
+      # IPv4/IPv6 network CIDRs to use for service IPs (default: 10.43.0.0/16)
+      service-cidr: {{ .Values.rkeConfig.machineGlobalConfig.serviceCidr }} 
+      {{- end }}   
+  
+      {{- if .Values.rkeConfig.machineGlobalConfig.kubeApiserverArg }}
+      # Customized flag for kube-apiserver process
+      kube-apiserver-arg: {{ .Values.rkeConfig.machineGlobalConfig.kubeApiserverArg }}
+      {{- end }}
+      {{- if .Values.rkeConfig.machineGlobalConfig.kubeSchedulerArg }}
+      # Customized flag for kube-scheduler process
+      kube-scheduler-arg: {{ .Values.rkeConfig.machineGlobalConfig.kubeSchedulerArg }}
+      {{- end }}
+      {{- if .Values.rkeConfig.machineGlobalConfig.kubeControllerManagerArg }} 
+      # Customized flag for kube-controller-manager process
+      kube-controller-manager-arg: {{ .Values.rkeConfig.machineGlobalConfig.kubeControllerManagerArg }} 
+      {{- end }}
+      {{- if .Values.rkeConfig.machineGlobalConfig.secretsEncryption }} 
+      # Enable Secret encryption at rest
+      secrets-encryption: { {.Values.rkeConfig.machineGlobalConfig.secretsEncryption }}
+      {{- end }}
+
+      # Add additional hostnames or IPv4/IPv6 addresses as Subject Alternative Names on the server TLS cert
+      # tls-san: []
+
+      ## TODO
+      # Path to the file that defines the audit policy configuration
+      audit-policy-file: {{ .Values.rkeConfig.machineGlobalConfig.auditPolicyFile }}
+
       ## todo
       # Validate system configuration against the selected benchmark (valid items: cis-1.5, cis-1.6 )
       # profile: "cis-1.6"
-      profile: null      
-
-
-      # Customized flag for kube-apiserver process
-      # kube-apiserver-arg: ""
-      # Customized flag for kube-scheduler process
-      # kube-scheduler-arg: ""
-      # Customized flag for kube-controller-manager process
-      # kube-controller-manager-arg: ""
-      # Enable Secret encryption at rest
-      # secrets-encryption: false
-      # IPv4/IPv6 network CIDRs to use for service IPs (default: 10.43.0.0/16)
-      # service-cidr: "10.43.0.0/16"
-      # Port range to reserve for services with NodePort visibility (default: "30000-32767")
-      # service-node-port-range: "30000-32767"
-      # Add additional hostnames or IPv4/IPv6 addresses as Subject Alternative Names on the server TLS cert
-      # tls-san: []
+      profile: null    
 
     # machineSelectorConfig:
     # - config:
@@ -218,7 +257,4 @@ spec:
         # timeout: 0
       workerConcurrency: "10%"
       controlPlaneConcurrency: "10%"
-{{- if .Values.agentEnvs }}
-  agentEnvVars:
-{{ toYaml .Values.agentEnvs | indent 4 }}
-{{- end }}
+
