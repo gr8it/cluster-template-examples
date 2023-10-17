@@ -126,7 +126,10 @@ spec:
       {{- end }}
     {{- end }}
     {{- end }}
-    chartValues:  {{ .Values.rkeConfig.chartValues }}
+    {{- if .Values.rkeConfig.chartValues }}
+    chartValues: 
+{{ toYaml .Values.rkeConfig.chartValues | indent 6 }}
+    {{- end }}
     etcd:
       # Disable automatic etcd snapshots
       disableSnapshots: {{ .Values.rkeConfig.etcd.disableSnapshots }}
