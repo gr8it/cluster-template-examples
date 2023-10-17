@@ -72,8 +72,8 @@ rkeConfig:
     # kubeSchedulerArg: ""
     # Customized flag for kube-controller-manager process
     # kubeControllerManagerArg: ""
-    # Enable Secret encryption at rest 
-    secretsEncryption: { {.Value.rkeConfig.machineGlobalConfig.secretsEncryption }}
+    # Enable Secret encryption at rest( default false )
+    secretsEncryption: false
 
 
 # specify user principal ids to be assiged as cluster members
