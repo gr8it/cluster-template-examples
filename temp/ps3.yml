@@ -244,6 +244,7 @@ nodepools:
           sudo netplan apply
     runcmd:
       - bash /root/test.sh
+  
 
   # vSphere cloud-init filepath or url to add to guestinfo, filepath will be read and base64 encoded before adding
   # cloudinit: ""
@@ -307,11 +308,11 @@ nodepools:
   vappIpprotocol: "IPv4"
 
   # vSphere vApp properties
-  # vappProperty: 
-  #- guestinfo.interface.0.ip.0.address=ip.rancherManagement
-  #- guestinfo.interface.0.ip.0.netmask=${netmask:rancherManagement}
-  #- guestinfo.interface.0.route.0.gateway=${gateway:rancherManagement}
-  #- guestinfo.dns.servers=${dns:rancherManagement}
+  vappProperty: 
+  - guestinfo.interface.0.ip.0.address=ip.rancherManagement
+  - guestinfo.interface.0.ip.0.netmask=${netmask:rancherManagement}
+  - guestinfo.interface.0.route.0.gateway=${gateway:rancherManagement}
+  - guestinfo.dns.servers=${dns:rancherManagement}
 
   # 'vSphere OVF environment transports to use for properties. Supported values are: iso and com.vmware.guestInfo'
   vappTransport: "com.vmware.guestInfo"

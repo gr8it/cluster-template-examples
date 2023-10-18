@@ -40,7 +40,7 @@ sshUserGroup: {{ $nodepool.sshUserGroup }}
 tag: {{ $nodepool.tag }}
 vappIpallocationpolicy: {{ $nodepool.vappIpallocationpolicy }}
 vappIpprotocol: {{ $nodepool.vappIpprotocol }}
-vappProperty: {{ $nodepool.vappProperty }}
+vappProperty: {{ $nodepool.vappProperty | quote }}
 vappTransport: {{ $nodepool.vappTransport }}
 vcenter: {{ $nodepool.vcenter }}
 vcenterPort: {{ $nodepool.vcenterPort | quote }}
@@ -88,7 +88,7 @@ sshUserGroup: {{ $nodepool.sshUserGroup }}
 tag: {{ $nodepool.tag }}
 vappIpallocationpolicy: {{ $nodepool.vappIpallocationpolicy }}
 vappIpprotocol: {{ $nodepool.vappIpprotocol }}
-vappProperty: {{ $nodepool.vappProperty }}
+vappProperty: {{ $nodepool.vappProperty | quote }}
 vappTransport: {{ $nodepool.vappTransport }}
 vcenter: {{ $nodepool.vcenter }}
 vcenterPort: {{ $nodepool.vcenterPort }}
