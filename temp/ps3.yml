@@ -309,7 +309,7 @@ nodepools:
 
   # vSphere vApp properties
   vappProperty: 
-  - guestinfo.interface.0.ip.0.address=ip.rancherManagement
+  - guestinfo.interface.0.ip.0.address=ip:rancherManagement
   - guestinfo.interface.0.ip.0.netmask=${netmask:rancherManagement}
   - guestinfo.interface.0.route.0.gateway=${gateway:rancherManagement}
   - guestinfo.dns.servers=${dns:rancherManagement}
