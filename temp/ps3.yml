@@ -222,8 +222,7 @@ nodepools:
     #cloud-config
     write_files:
       - path: /etc/netplan/99-disable-network-config.cfg
-        content: “network: {config: disabled}”
-    write_files:
+        content: "network: {config: disabled}"
       - path: /root/test.sh
         content: |
           #!/bin/bash

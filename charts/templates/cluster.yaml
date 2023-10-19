@@ -132,7 +132,9 @@ spec:
     {{- end }}
     etcd:
       # Disable automatic etcd snapshots
+      {{- if .Values.rkeConfig.etcd.disableSnapshots }}
       disableSnapshots: {{ .Values.rkeConfig.etcd.disableSnapshots }}
+      {{- end }}
       ## todo
       # Directory to save db snapshots. (Default location: ${data-dir}/db/snapshots)
       # etcd-snapshot-dir: ""
