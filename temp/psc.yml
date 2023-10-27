@@ -1,6 +1,6 @@
 cluster:
   # specify cluster name
-  name: pss-poc
+  name: pes-poc
 
   # specify cluster labels
   labels: {}
