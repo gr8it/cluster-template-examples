@@ -135,12 +135,14 @@ spec:
       {{- if .Values.rkeConfig.etcd.disableSnapshots }}
       disableSnapshots: {{ .Values.rkeConfig.etcd.disableSnapshots }}
       {{- end }}
-      ## todo
       # Directory to save db snapshots. (Default location: ${data-dir}/db/snapshots)
-      # etcd-snapshot-dir: ""
-      ## todo
+      {{- if .Values.rkeConfig.etcd.etcdSnapshotDir }}
+      etcd-snapshot-dir: {{ .Values.rkeConfig.etcd.etcdSnapshotDir }}
+      {{- end }}
       # Set the base name of etcd snapshots. Default: etcd-snapshot-<unix-timestamp> (default: "etcd-snapshot")
-      # etcd-snapshot-name: ""
+      {{- if .Values.rkeConfig.etcd.etcdSnapshotName }}
+      etcd-snapshot-name: {{ .Values.rkeConfig.etcd.etcdSnapshotName }}
+      {{- end }}
       # Number of snapshots to retain (default: 5)
       snapshotRetention: {{ .Values.rkeConfig.etcd.snapshotRetention }}
       # Snapshot interval time in cron spec. eg. every 5 hours '* */5 * * *' (default: "* */5 * * *")
@@ -174,9 +176,8 @@ spec:
       cni: {{ .Values.rkeConfig.machineGlobalConfig.cni }}
       # Do not deploy packaged components and delete any deployed components (valid items: rke2-coredns, rke2-ingress-nginx, rke2-kube-proxy, rke2-metrics-server)
       disable: {{ .Values.rkeConfig.machineGlobalConfig.disable }}
-      ## todo
-      disable-kube-proxy: false
-      
+      # Disable running kube-proxy
+      disable-kube-proxy: {{ .Values.rkeConfig.machineGlobalConfig.disableKubeProxy }}
       {{- if .Values.rkeConfig.machineGlobalConfig.etcdExposeMetrics }} 
       # Expose etcd metrics to client interface. (Default false)
       etcd-expose-metrics: {{ .Values.rkeConfig.machineGlobalConfig.etcdExposeMetrics }} 
@@ -206,19 +207,18 @@ spec:
       # Enable Secret encryption at rest
       secrets-encryption: { {.Values.rkeConfig.machineGlobalConfig.secretsEncryption }}
       {{- end }}
-
       # Add additional hostnames or IPv4/IPv6 addresses as Subject Alternative Names on the server TLS cert
-      # tls-san: []
+      tls-san: {{ .Values.rkeConfig.machineGlobalConfig.tlsSan }}
 
-      ## TODO
+      
       # Path to the file that defines the audit policy configuration
       audit-policy-file: {{ .Values.rkeConfig.machineGlobalConfig.auditPolicyFile }}
 
-      ## todo
       # Validate system configuration against the selected benchmark (valid items: cis-1.5, cis-1.6 )
       # profile: "cis-1.6"
-      profile: null    
+      profile: {{ .Values.rkeConfig.machineGlobalConfig.profile }}    
 
+    
     # machineSelectorConfig:
     # - config:
         # Node name
@@ -243,6 +243,7 @@ spec:
         # cloud-provider-name: ""
         # Cloud provider configuration file path
         # cloud-provider-config: ""
+    #rodo    
     upgradeStrategy:
       controlPlaneDrainOptions:
         enabled: false

@@ -54,6 +54,7 @@ rkeConfig:
     clusterDns: "10.43.0.10"
     clusterDomain: "cluster.local"
     disable: []
+    disableKubeProxy: false
 
     # Port range to reserve for services with NodePort visibility (default: "30000-32767")
     # serviceNodePortRange
@@ -74,8 +75,15 @@ rkeConfig:
     # kubeControllerManagerArg: ""
     # Enable Secret encryption at rest( default false )
     secretsEncryption: false
+    # Add additional hostnames or IPv4/IPv6 addresses as Subject Alternative Names on the server TLS cert
+    tlsSan: []
+    # Path to the file that defines the audit policy configuration
+    # audit-policy-file:    
+    # Validate system configuration against the selected benchmark (valid items: cis-1.5, cis-1.6 )
+    # profile: null
 
-
+  machineSelectorConfig:
+  
 # specify user principal ids to be assiged as cluster members
 # clusterMembers:
 # - principalName: "local://u-z8zl5"
