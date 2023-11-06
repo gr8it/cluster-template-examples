@@ -40,7 +40,9 @@ sshUserGroup: {{ $nodepool.sshUserGroup }}
 tag: {{ $nodepool.tag }}
 vappIpallocationpolicy: {{ $nodepool.vappIpallocationpolicy }}
 vappIpprotocol: {{ $nodepool.vappIpprotocol }}
+{{- if $nodepool.vappProperty }}
 vappProperty: {{ $nodepool.vappProperty | toJson }}
+{{- end }}
 vappTransport: {{ $nodepool.vappTransport }}
 vcenter: {{ $nodepool.vcenter }}
 vcenterPort: {{ $nodepool.vcenterPort | quote }}

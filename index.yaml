@@ -5,7 +5,18 @@ entries:
       catalog.cattle.io/namespace: fleet-default
       catalog.cattle.io/type: cluster-template
     apiVersion: v1
-    created: "2023-10-27T14:38:42.400878162+02:00"
+    created: "2023-11-06T16:33:45.011523065+01:00"
+    description: Cluster template for rke2
+    digest: 708650716516d7a8ff6bb34ba06a7c04ca0738249578f257ae2f7dccfa2f7d3e
+    name: cluster-template
+    urls:
+    - cluster-template-0.0.5.tgz
+    version: 0.0.5
+  - annotations:
+      catalog.cattle.io/namespace: fleet-default
+      catalog.cattle.io/type: cluster-template
+    apiVersion: v1
+    created: "2023-11-06T16:33:45.010821265+01:00"
     description: Cluster template for rke2
     digest: df6a52ec122337932b36f211c17643e45962779102f21a729947f9b7c51c5587
     name: cluster-template
@@ -16,7 +27,7 @@ entries:
       catalog.cattle.io/namespace: fleet-default
       catalog.cattle.io/type: cluster-template
     apiVersion: v1
-    created: "2023-10-27T14:38:42.399190962+02:00"
+    created: "2023-11-06T16:33:45.010181765+01:00"
     description: Cluster template for rke2
     digest: e18d2ac2c3ef0cdb1f4aeab6f49b788fe4420e55a6c630e4014b331e7f351613
     name: cluster-template
@@ -27,7 +38,7 @@ entries:
       catalog.cattle.io/namespace: fleet-default
       catalog.cattle.io/type: cluster-template
     apiVersion: v1
-    created: "2023-10-27T14:38:42.397106662+02:00"
+    created: "2023-11-06T16:33:45.009534765+01:00"
     description: Cluster template for rke2
     digest: decb5abeaa67f3c1bf3c0d1d4d4ca4a65fed439b28419acadc34a88b58c80ba4
     name: cluster-template
@@ -38,11 +49,11 @@ entries:
       catalog.cattle.io/namespace: fleet-default
       catalog.cattle.io/type: cluster-template
     apiVersion: v1
-    created: "2023-10-27T14:38:42.395278061+02:00"
+    created: "2023-11-06T16:33:45.009029165+01:00"
     description: Cluster template for rke2
     digest: d372363c814ac79e7d1f4b877e9b47ec39eaf3fde5a70137a0074dfa70e3dd2c
     name: cluster-template
     urls:
     - cluster-template-0.0.1.tgz
     version: 0.0.1
-generated: "2023-10-27T14:38:42.385109661+02:00"
+generated: "2023-11-06T16:33:45.008345465+01:00"
