@@ -18,8 +18,10 @@ common:
 cfgparam: {{ $nodepool.cfgparam }}
 {{- end }}
 cloneFrom: {{ $nodepool.cloneFrom }}
+{{- if $nodepool.cloudConfig }}
 cloudConfig: |
 {{ $nodepool.cloudConfig | indent 2 }}
+{{- end }}
 cloudinit: {{ $nodepool.cloudinit }}
 contentLibrary: {{ $nodepool.contentLibrary }}
 cpuCount: {{ $nodepool.cpuCount | quote }}
