@@ -4,7 +4,11 @@ cluster:
   name: pse-c03
 
   # specify cluster labels
-  labels: {}
+  labels:
+    monitoring: "true"
+    vspherecsi: "true"
+    beta: "true"
+    alfa-x: "true"  
 
   # specify cluster annotations
   annotations:
@@ -158,10 +162,17 @@ nodepools:
   worker: true
 
   # specify node labels
-  labels: {}
+  labels:
+    alfa: nodelabel
 
   # specify node taints
-  taints: {}
+  taints:
+    - key: tent
+      value: tent
+      effect: NoSchedule
+    - key: tent2
+      value: tent2
+      effect: PreferNoSchedule  
 
   # specify nodepool size
   quantity: 1
